@@ -17,7 +17,8 @@ function capitalizeName(inputName) {
 
   for (const ch of inputName) {
     if (ch === ch.toUpperCase()) {
-      capitalizedName += ' ';
+      capitalizedName += ' ' + ch.toLowerCase();
+      continue;
     }
     capitalizedName += ch;
   }
