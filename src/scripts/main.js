@@ -3,7 +3,7 @@
 const inputs = document.querySelectorAll('input');
 
 for (const input of inputs) {
-  const labelName = capitalizeName(input.name);
+  const labelName = normalizeName(input.name);
 
   input.parentNode.insertAdjacentHTML(
     'afterbegin',
@@ -12,15 +12,18 @@ for (const input of inputs) {
   input.setAttribute('placeholder', labelName);
 }
 
-function capitalizeName(inputName) {
-  let capitalizedName = '';
+function normalizeName(inputName) {
+  let normalizedName = '';
 
   for (const ch of inputName) {
     if (ch === ch.toUpperCase()) {
-      capitalizedName += ' ';
+      normalizedName += ' ' + ch.toLowerCase();
+      continue;
     }
-    capitalizedName += ch;
+    normalizedName += ch;
   }
 
-  return capitalizedName.toUpperCase();
+  normalizedName = normalizedName[0].toUpperCase() + normalizedName.slice(1);
+
+  return normalizedName;
 }
