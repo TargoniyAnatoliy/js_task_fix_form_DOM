@@ -17,13 +17,10 @@ function capitalizeName(inputName) {
 
   for (const ch of inputName) {
     if (ch === ch.toUpperCase()) {
-      capitalizedName += ' ' + ch.toLowerCase();
-      continue;
+      capitalizedName += ' ';
     }
     capitalizedName += ch;
   }
 
-  capitalizedName = capitalizedName[0].toUpperCase() + capitalizedName.slice(1);
-
-  return capitalizedName;
+  return capitalizedName.toUpperCase();
 }
