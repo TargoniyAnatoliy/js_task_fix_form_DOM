@@ -5,8 +5,8 @@ const inputs = document.querySelectorAll('input');
 for (const input of inputs) {
   const labelName = normalizeName(input.name);
 
-  input.parentNode.insertAdjacentHTML(
-    'afterbegin',
+  input.insertAdjacentHTML(
+    'beforebegin',
     `<label class="field-label" for="${input.id}">${labelName}</label>`,
   );
   input.setAttribute('placeholder', labelName);
